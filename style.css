@@ -1,0 +1,1171 @@
+/*-------------------------------------------*/
+/*--GERAL--------------------------------------------------*/
+*{
+	/*aqui é o seletor universal (se refere a todos os elementos do documento)*/
+	margin: 0;
+	/*neste margin está sendo dito que os espaços entre as bordas de cada tag não existem mais*/
+	padding: 0;
+	box-sizing: border-box;
+	/*aqui está sendo dito que o tamanho da caixa é definido a partir da borda da mesma*/
+}
+
+/*----------------*/
+:root{
+	/*aqui é o seletor :root*/
+	hue: 190;
+	primary_color: hsl(var(hue), 100%, 26%);
+	headline: hsl(210, 11%, 15%);
+	paragraph: hsl(210, 9%, 31%);
+	brand_beige: hsl(39, 100%, 97%);
+	brand_light: hsl(calc(var(hue) - 22), 23%, 89%);
+	brand_light_2: hsl(calc(var(hue) + 10), 14%, 97%);
+	button_hover: hsl(var(hue), 100%, 14%);
+	bg_light: hsl(180, 14%, 97%);
+	nav_heigth: 7.2rem;
+	/*
+	aqui uma var está sendo definida
+	estas vars guardam valor de cores em hue shifting
+	*/
+	font-size: 62.5%;
+	/*
+	aqui o tamanho da fonte está sendo definido
+	a fonte está no tamanho de 10px por estar em 62.5%
+	se o font-size estivesse em 100% o tamanho seria de 16px
+	*/
+}
+
+/*----------------*/
+html{
+	scroll-behavior: smooth;
+	/*aqui a rolagem da barra será leve quando um link direcionar para o fim da página (só funciona no chrome)*/
+}
+
+/*----------------*/
+html, body{
+	width: 100%;
+	height: 100%;
+	/*aqui está sendo pego o tamanho total de body e de html*/
+}
+
+/*----------------*/
+body{
+	/*
+	color: red;
+	aqui está sendo definido a cor da fonte
+	*/
+	font-family: 'DM Sans'; /*aqui está sendo definido o tipo da fonte*/
+	font-size: 1.6rem; /*aqui o 1.6 seria o mesmo que 16px*/
+	text-align: center; /*aqui o o texto será alinhado. Nesse caso, no centro*/
+	overflow: overlay; /*aqui está sendo sobreposta a barra de rolagem sobre o corpo da página*/
+	background-color: var(bg_light);
+	/*
+	o background-color foi adicionado ao body por causa que a parte que não está colorida (branco)...
+	da viewport faz parte do body
+	*/
+}
+
+/*----------------*/
+.wrapper{
+	/*
+	wrapper significa embrulhado
+	aqui o wrapper está pegando as propriedades do header e guardando em si mesmo
+	o wrapper está sendo usado para manter um padrão entre os elementos do website
+	width recebeu min para que os elementos do site auto-ajustem o seu tamanho quando...
+	a viewport for menor que 500pixels
+	*/
+	width: min(50rem 100%);
+	margin-inline: auto;
+	padding-inline: 2.4rem;
+	/*
+	aqui o padding está colocando um preenchimento nos elementos do header
+	com este padding todos os elementos do header ficaram alinhados corretamentes
+	*/
+}
+
+/*----------------*/
+ul{
+	list-style: none;
+	/*
+	aqui o list-style de toda ul é removida
+	com isso o ul perde sua propriedade de lista não ordenada
+	*/
+}
+
+/*----------------*/
+img{
+	max-width: 100%;
+	/*
+	aqui foi colocado o max widht para que as imagens tenham um limite de tamanho
+	com isso podemos pegar imagens maiores e as deixar menores na webpage sem perder a qualidade delas
+	*/
+}
+
+/*----------------*/
+section{
+	/*tudo que estiver aqui será adicionado a todos os section's*/
+	padding-block: 10rem;
+}
+
+/*----------------*/
+section header h4{
+	/*
+	o section está pegando as propriedades de #home h1 por causa que #home agora faz parte de section home
+	e também para manter um padrão no documento
+	*/
+	font-size: 1.4rem; /*aqui o 1.4 seria o mesmo que 14px*/
+	font-weight: 700;
+	line-height: 150%;
+	letter-spacing: 0.08rem;
+	/*
+	color: #00856F;
+	aqui a cor está sendo definida por hexadecimal
+	*/
+	color: var(primary_color);
+	text-transform: uppercase;
+	margin-bottom: 1.6rem;
+}
+
+/*----------------*/
+section header h2{
+	/*
+	o section está pegando as propriedades de #services h2 por causa que #services faz parte de section services
+	e também para manter um padrão no documento
+	*/
+	font-size: 3rem;
+	line-height: 3.9rem;
+	color: var(headline);
+}
+
+/*----------------*/
+section header h1{
+	font-size: 3.4rem;
+	color: var(headline);
+	line-height: 130%;
+}
+
+/*----------------*/
+section .content p{
+	font-weight: 400;
+	font-size: 1.6rem;
+	line-height: 150%;
+	color: var(paragraph);
+}
+
+/*----------------*/
+.button{
+	background-color: var(primary_color);
+	/*aqui a cor do plano de fundo da tag botão está sendo definido*/
+	border: none; /*aqui a borda fica invisível*/
+	border-radius: 4rem; /*aqui ocorre o arredondamento das bordas*/
+	/*
+	aqui o tipo de alinhamento da tag botão é redefinido de in-line para block
+	o block pega de um canto da tela até o outro no eixo x
+	já o in-line pega apenas o tamanho da borda e preenche menos espaço na tela
+	display: block;
+	*/
+	margin-bottom: 6rem;
+	/*
+	height: 6.2rem;
+	aqui está sendo definido a altura do botão
+	width: 26.3rem;
+	aqui está sendo definido a largura do botão
+	*/
+	width: fit-content;
+	/*
+	aqui o width está limitando a largura da caixa ao(s) conteúdo(s) contido nela
+	o width foi colocado para que a largura da caixa fique do tamanho desejado e não...
+	do mesmo tamanho que os demais
+	*/
+	padding: 1.6rem 3.2rem;
+	/*
+	no padding a primeira propriedade se refere ao eixo y e a segunda ao eixo x
+	o padding foi colocado no lugar de height e width para que o botão não ficasse limitado aquelas proprieades
+	*/
+	color: white;
+	/*aqui está sendo definido a cor do texto (conteúdo) dentro do botão*/
+	text-transform: uppercase;
+	/*aqui estamos transformando o texto para caixa alta*/
+	font-size: 1.4rem;
+	/*tamanho da fonte do texto*/
+	font-weight: 700;
+	/*peso da fonte do texto está como padrão*/
+	display: flex;
+	/*este display faz com que os filhos fiquem flexíveis (colados)*/
+	align-items: center;
+	/*aqui vai alinhar os filhos/conteúdos*/
+	justify-content: center;
+	/*aqui será alinhado/justificado os filhos/conteúdos dentro da caixa*/
+	gap: 1.6rem;
+	/*aqui será definido um espaço entre os filhos/conteúdos*/
+	text-decoration: none;
+	transition: background 200ms;
+}
+
+/*----------------*/
+.button:hover{
+	/**/
+	background-color: var(button_hover);
+}
+
+/*----------------*/
+.social-links{
+	/*aqui a classe da tag a está sendo pega diretamente*/
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 3.2rem;
+}
+
+/*-------------------------------------------*/
+/*--COLORS-------------------------------------------------*/
+#services .card circle{
+	/**/
+	fill: var(brand_light);
+}
+
+/*----------------*/
+#navigation .logo path[fill*="#00856F"], #buttonBackToTop circle{
+	/*está sendo pego no path de logo em navigation todo o fill que tiver a propriedade citada*/
+	fill: var(primary_color);
+}
+
+/*----------------*/
+#contact li path{
+	/**/
+	stroke: var(primary_color);
+}
+
+/*----------------*/
+button.menu_expanded #navigation .logo path, #navigation.scroll .logo path{
+	/**/
+	fill: white;
+}
+
+/*----------------*/
+button.open-menu path[stroke*="#00856F"], #contact li path{
+	fill: var(primary_color);
+}
+
+/*----------------*/
+#navigation.scroll button.open-menu path[stroke*="#00856F"]{
+	/**/
+	fill: white;
+}
+
+/*-------------------------------------------*/
+/*--NAVIGATION---------------------------------------------*/
+nav{
+	display: flex;
+	/*
+	aqui está sendo definido o preenchimento em ambos os eixos:
+	padding-inline: 2.4rem;
+	padding-block: 1.6rem;
+	mas ao usar somente padding é possível fazer o mesmo, assim simplificando o código
+	no padding a primeira propriedade é no eixo y e a segunda no eixo x
+	*/
+	height: var(nav_heigth);
+	position: fixed;
+	/*
+	aqui a posição da caixa nav está sendo definida como fixa (desse modo, sempre aparecerá no viewport)
+	porém, com isso algumas propriedades são perdidas como o margin
+	para isso será necessário mexer no top, no left e no transform para recuperar essas propriedades
+	*/
+	top: 0;
+	left: 50%;
+	/*aqui o left está redefinindo a posição inicial da caixa para a metade do viewport*/
+	transform: translateX(-50%);
+	/*
+	aqui o transform: translateX; está puxando para a esquerda metade do tamanho da caixa no eixo x
+	com isso o transform reajusta o left
+	*/
+	z-index: 100;
+	/*o z-index foi adicionado para corrigir um problema referente ao scroll reveal onde o nav estava por baixo*/
+	width: 100vw;
+	/*
+	width foi movido para cá para que a caixa de nav ficasse alinhada como desejado
+	o alinhamento ocorre por causa que nav recebe .wrapper como classe
+	nesse caso, as propriedades de wrapper fazem com que a caixa de nav fique alinhada
+	*/
+}
+
+/*----------------*/
+nav.wrapper{
+	/*o wrapper está pegando propriedades do nav*/
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	/*
+	aqui está sendo colocado um espaço entre os elementos no eixo x
+	assim cada um fica em um canto da viewport
+	*/
+}
+
+/*----------------*/
+nav.scroll{
+	background-color: var(primary_color);
+	/*
+	width: 100vw;
+	esta propriedade foi movida para nav para que um problema refente ao scroll reveal fosse solucionado
+	problema esse onde a animação de abertura do menu e o redirecionamento não estavam funcionando como desejado
+	*/
+	/*
+	top: 0;
+	position: fixed;
+	essas propriedades foram removidas pois as mesmas com os mesmos valores já estão em nav
+	*/
+}
+
+/*----------------*/
+nav button{
+	/*aqui todos os botões que façam parte de nav terão seu fundo e sua borda deletados*/
+	background: none;
+	border: none;
+	cursor: pointer;
+	/*
+	o cursor: pointer; serve para quando o cursor do mouse estiver em cima do botão...
+	o mesmo mude para a mãozinha
+	*/
+}
+
+/*----------------*/
+nav .menu, nav .close-menu{
+	/*
+	as posições dos botões de abrir e fechar o menu foram modificadas para fixas
+	isso foi feito para que os mesmos não saissem da tela quando o tamanho da viewport...
+	for menor que 500pixels
+	*/
+	position: fixed;
+}
+
+/*-------------------------------------------*/
+/*--MENU_EXPANDED------------------------------------------*/
+.menu{
+	transform: translateY(100%);
+	/*
+	aqui o transform irá mover todo o menu para baixo (isso foi feito para que uma transição...
+	em body.menu_expanded .menu fosse feita)
+	*/
+}
+
+/*----------------*/
+body.menu_expanded{
+	overflow: hidden;
+	/*
+	overflow significa transbordar (essa transbordação é o que permite o scroll)
+	aqui o overflow irá inpossibilitar o scroll no menu_expanded
+	*/
+}
+
+/*----------------*/
+body.menu_expanded > :not(nav){
+	/*
+	aqui será pego todos os filhos de body - exceto o nav - do primeiro nível
+	o sinal de maior que significa primeiro nível
+	com isso tudo que não fizer parte de nav irá sumir quando o menu_expanded estiver ativo
+	isto serve para que não haja botões a mais do que o desejado no menu
+	*/
+	display: none;
+}
+
+/*----------------*/
+.menu, .close-menu, body.menu_expanded .open-menu{
+	/*aqui o menu, o close-menu e o open-menu estão invisíveis quando o menu_expanded não estiver ativo*/
+	opacity: 0;
+	visibility: hidden;
+	/*aqui o vibility: esconde o menu*/
+}
+
+/*----------------*/
+body.menu_expanded .menu, body.menu_expanded .close-menu{
+	/*aqui o menu e o close-menu se tornam vísiveis quando menu_expanded estiver ativo*/
+	opacity: 1;
+	visibility: visible;
+	/*aqui o vibility: mostra o menu*/
+}
+
+/*----------------*/
+body.menu_expanded .menu{
+	/*aqui está sendo pega a classe menu que há dentro de body e classe menu_expanded de body*/
+	top: 0;
+	left: 0;
+	background-color: var(primary_color);
+	width: 100vw;
+	height: 100vh;
+	/*aqui o menu está pegando 100 pedaços do tamanho da viewport*/
+	padding-top: var(nav_heigth);
+	/*aqui fará com que haja um preenchimento acima da caixa menu que a separe da logo*/
+	transition: transform 400ms;
+	/*
+	aqui está sendo colocada uma transição de opacidade para quando o menu for aberto
+	o opacity foi trocado por transform para que a transição ocorresse
+	*/
+	transform: translateY(0);
+}
+
+/*----------------*/
+/*
+body.menu_expanded .nav{
+	isto foi removido para que um problema relacionado ao scroll reveal fosse solucionado
+	problema esse que desaparecia com as logo's e estragava os ícones das redes sociais
+	position: relative;
+	aqui o posicionamento fixo do nav está sendo substítuido por relative quando menu_expanded estiver ativo
+}
+*/
+
+/*----------------*/
+.menu ul:nth-child(1) {
+	/*aqui está sendo pego a primeira ul do menu (no caso a ul que está com os botões)*/
+	display: flex;
+	flex-direction: column;
+	gap: 4.8rem;
+	margin-top: 6rem;
+	font-weight: 700;
+	font-size: 2.4rem;
+	line-height: 3.1rem;
+}
+
+/*----------------*/
+.menu ul li a{
+	/*
+	aqui está sendo pego a tag <a> dos li de cada ul do menu
+	a mudança precisa ser feita diretamente no objeto para ser considerada
+	*/
+	color: white;
+	text-decoration: none;
+}
+
+/*----------------*/
+.menu .button{
+	/*aqui está sendo pego o botão de consulta*/
+	background-color: white;
+	border-radius: 4rem;
+	font-weight: 700;
+	font-size: 1.8rem;
+	line-height: 2.3rem;
+	text-transform: uppercase;
+	text-decoration: none;
+	/*aqui a linha que fica abaixo do texto é removida*/
+	color: var(primary_color);
+	display: inline-block;
+	/*
+	aqui o display está aplicando propriedades como largura e altura, removendo...
+	a sobreposição e aplicando quebra de linha
+	*/
+	padding: 16px 32px;
+	margin-top: 4.8rem;
+	margin-bottom: 8rem;
+}
+
+/*----------------*/
+.menu .button:hover{
+	background-color: var(primary_color);
+	color: white;
+	filter: brightness(1.3);
+	/*o filter está aumentando o brilho das cores*/
+}
+
+/*----------------*/
+body.menu_expanded .logo, body.menu_expanded button{
+	/*aqui está sendo dito que a logo e o botão estarão visíveis quando o menu_expanded estiver ativo*/
+	position: relative;
+	/*position foi chamado para que z-index fosse desbloqueado e a posição não fosse alterada*/
+	z-index: 100;
+	/*aqui o z-index está com o valor de 100 para garantir que a logo sempre estará acima de tudo*/
+}
+
+/*----------------*/
+body.menu_expanded .logo path{
+	/*
+	aqui todo o path de logo que tiver fill em sua propriedade será preenchido com a cor branca
+	não será preciso especificar qual path será pego
+	*/
+	fill: white;
+}
+
+/*----------------*/
+body.menu_expanded button path{
+	/*aqui todo o path de logo que tiver stroke em sua propriedade será preenchido com a cor branca*/
+	stroke: white;
+}
+
+/*-------------------------------------------*/
+/*--HOME---------------------------------------------------*/
+#home{
+	/*
+	width: 37.5rem;
+	aqui está sendo definido a largura do cabeçalho
+	margin-right: auto;
+	margin-left: auto;
+	esses margins estão preenchendo as laterais do cabeçalho automaticamente
+	com isso o mesmo fica alinhado no centro
+	*/
+	padding-top: calc(4.1rem + var(nav_heigth));
+	/*
+	aqui o margin está colocando um espaço na parte de cima do header de 41px
+	o valor de margin está sendo somado a var nav_height através da função calc();
+	isso foi feito para que as medidas do margin-top e da var se mantessem
+	o margin foi substituído por padding para que um problema envolvendo o redirecionamento do menu...
+	fosse resolvido (esse problema é referente a quando redirecionado mostrar o top da página e não o...
+	topo da caixa de header)
+	*/
+	/*
+	padding-right: 2rem;
+	padding-left: 2rem;
+	aqui estamos colocando o preenchimento no cabeçalho
+	por conta disto o tamanho da caixa será somada ao tamanho do cabeçalho
+	porém, o box-sizing: border-box; resolve este problema
+	*/
+	padding-block: 0;
+	/*
+	este padding foi colocado para que um problema envolvendo o responsivo fosse solucionado
+	o home não recebe o padding-block que foi definido section neste documento
+	*/
+}
+
+/*----------------*/
+#home::before{
+	/*o before serve para dizer que algo será feito antes do conteúdo que há dentro da tag
+	ex.: se fosse colocado content: "abc";, isto iria aparecer antes de qualquer coisa que...
+	esteja dentro da tag
+	*/
+	content: "";
+	width: 100%;
+	/*aqui está sendo dito que a largura da caixa é do tamanho da viewport
+	o 100 significa que a largura da viewport está sendo dividida em 100 pedaços e a...
+	propriedade está pegando estes 100 pedaços
+	o v é de viewport e o w de width
+	o valor de widht foi mudado de 100vw para 100%
+	isto foi feito para que a rolagem no eixo y não fosse possível (por causa do vw está rolagem estava disponível)
+	*/
+	height: calc(76% + var(nav_heigth));
+	/*
+	aqui o height do before está sendo somado a var para restaurar ao tamanho desejado na viewport
+	o rem foi trocado por 70% para que um erro envolvendo o responsivo fosse resolvido
+	problema esse onde a caixa do before não acompanhava corretamente o tamanho da viewport como desejado
+	*/
+	background-color: var(brand_light);
+	display: block;
+	position: absolute;
+	/*ao definir a posição como absoluta a caixa se sobrepõe diante os demais filhos da tag*/
+	top: 0;
+	left: 0;
+	/*
+	aqui está sendo definido a posição da caixa no topo e na esquerda
+	só é possível usar estas propriedades por causa do position
+	*/
+	z-index: -1;
+	/*aqui está sendo redefinido a posição da caixa no eixo z*/
+}
+
+/*----------------*/
+#home .button{
+	/*
+	margin-right: auto;
+	margin-left: auto;
+	aqui os margins irão preencher as laterais do botão
+	assim, o centralizando
+	sem os margins o botão ficaria descentralizado por causa do display: flex;
+	*/
+	margin-inline: auto;
+}
+
+/*----------------*/
+#home h1{
+	/*o margin foi mantido porque é uma propriedade que pode sofrer alterações em outros h1's*/
+	margin-bottom: 2.4rem;
+}
+
+/*----------------*/
+#home p{
+	font-size: 1.8rem;
+	line-height: 150%; /*aqui serve para definir o espaçamento de uma linha para outra*/
+	font-weight: 400;
+	color: var(paragraph);
+	margin-bottom: 3.2rem;
+}
+
+/*----------------*/
+#home img{
+	width: 26.4rem;
+	display: block;
+	margin-inline: auto;
+	object-position: 0 2rem;
+	/*aqui está sendo redefinido a posição de img no viewport*/
+}
+
+/*----------------*/
+#home .stats{
+	width: 100%;
+	/*
+	aqui estamos definindo o tamanho da caixa de stats
+	seu valor foi redefinido para 100% para que o seu tamanho fosse o mesmo da viewport
+	usando o rem o tamanho do mesmo fica preso aquele tamanho, não sendo tão flexível
+	*/
+	padding-block: 4rem;
+	/*
+	aqui está sendo colocado um preenchimento no eixo y da caixa
+	o padding-block faz o trabalho do padding-bottom e top ao mesmo tempo
+	o padding-inline faz o mesmo que o block com o diferencial que ele age no eixo x
+	*/
+	margin-inline: auto;
+	/*este margin é uma junção do margin right e left*/
+	background-color: var(brand_beige);
+	/*aqui está sendo definido uma cor para o fundo da caixa de stats*/
+	border: 1px solid var(brand_light);
+	/*aqui está sendo visível a borda da caixa*/
+	border-radius: 0.6rem;
+	display: flex;
+	flex-direction: column;
+	/*
+	aqui está sendo redefinido o alinhamento da propriedade flex;
+	normalmente o flex alinha os filhos um ao lado do outro
+	mas com o flex-direction podemos mudar o tipo do alinhamento
+	neste caso mudamos o alinhamento para column que deixa os filhos um em cima do outro
+	*/
+	justify-content: center;
+	/*
+	aqui está sendo definido o alinhamento do conteúdo/filhos dentro da caixa
+	com isto o conteúdo/filho fica o mais centralizado possível dentro da caixa
+	dependendo do alinhamento do flex; o justify-content pode alinhar os...
+	conteúdos/filhos em um eixo diferente
+	*/
+	gap: 6rem;
+}
+
+/*----------------*/
+#home .stat p{
+	/*aqui está sendo pego a tag p de cada stat do documento*/
+	margin: 0;
+	color: var(primary_color);
+	font-size: 1.6rem;
+	line-height: 150%;
+}
+
+/*----------------*/
+#home .stat h3{
+	font-size: 4.8rem;
+	/*aqui está sendo definido o tamanho da fonte da tag h3 de cada stat do documento*/
+	color: var(headline);
+	line-height: 130%;
+	margin-bottom: 0.4rem;
+}
+
+/*-------------------------------------------*/
+/*--SERVICES-----------------------------------------------*/
+#services .cards{
+	display: flex;
+	flex-direction: column;
+	gap: 3.2rem;
+}
+
+/*----------------*/
+#services header h2{
+	/*o margin foi mantido porque é uma propriedade que pode sofrer alterações em outros h2's*/
+	margin-bottom: 6rem;
+}
+
+/*----------------*/
+.card{
+	/*
+	uma div já vem com parâmetros como width e height, um total de 327x327
+	com isso não é preciso definir estes parâmetros
+	*/
+	padding: 2.4rem;
+	/*o preenchimento está sendo adicionado para que seja possível ajustar alguma coisas*/
+	text-align: left;
+	/*
+	aqui o está sendo definido o alinhamento do texto que há dentro da caixa
+	nesse caso o texto está alinhado na esquerda
+	*/
+	background-color: white;
+	border: 1px solid var(brand_light);
+	border-radius: 0.6rem;
+}
+
+/*----------------*/
+.card h3{
+	/**/
+	margin-block: 1.6rem;
+}
+
+/*-------------------------------------------*/
+/*--ABOUT--------------------------------------------------*/
+#about{
+	text-align: left;
+	background-color: var(brand_beige);
+}
+
+/*----------------*/
+#about header h2{
+	/**/
+	margin-bottom: 2.4rem;
+}
+
+/*----------------*/
+#about .content p{
+	margin-top: 2.4rem;
+	margin-bottom: 6rem;
+}
+
+/*-------------------------------------------*/
+/*--CONTACT------------------------------------------------*/
+#contact{
+	/**/
+	text-align: left;
+}
+
+/*----------------*/
+#contact header{
+	/**/
+	margin-bottom: 3.2rem;
+}
+
+/*----------------*/
+#contact ul{
+	display: flex;
+	flex-direction: column;
+	gap: 1.6rem;
+	margin-bottom: 3.2rem;
+}
+
+/*----------------*/
+#contact ul li{
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+}
+
+/*-------------------------------------------*/
+/*--FOOTER-------------------------------------------------*/
+footer{
+	background-color: var(primary_color);
+	padding-block: 6rem;
+	text-align: left;
+	color: white;
+}
+
+/*----------------*/
+footer .logo{
+	display: inline-block;
+	margin-bottom: 2.4rem;
+}
+
+/*----------------*/
+footer .logo svg{
+	width: 23.6rem;
+	height: 3.1rem;
+}
+
+/*----------------*/
+footer .logo path{
+	/**/
+	fill: white;
+}
+
+/*----------------*/
+footer p{
+	color: var(brand_beige);
+	line-height: 2;
+	margin-bottom: 3.2rem;
+}
+
+/*----------------*/
+footer .social-links{
+	/**/
+	justify-content: flex-start;
+}
+
+/*-------------------------------------------*/
+/*--BACKTOTOP----------------------------------------------*/
+#buttonBackToTop{
+	position: fixed;
+	bottom: 1rem;
+	right: 2.5rem;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(100%);
+	transition: 200ms;
+}
+
+#buttonBackToTop.show{
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+/*-------------------------------------------*/
+/*--RESPONSIVO---------------------------------------------*/
+@media (min-width: 1024px){
+	/*
+	o @media só funciona por causa do meta viewport
+	aqui o media fará modificações nos elementos que aparecem na viewport quando...
+	a largura mínima for 1024px
+	*/
+	/*-------------------------------------------*/
+	/*--GERAL--------------------------------------------------*/
+	body{
+		/**/
+		overflow: auto;
+	}
+
+	/*----------------*/
+	.wrapper{
+		width: min(112rem, 100%);
+		display: grid;
+		/*o display grid irá permitir mexer com certas propriedades das caixas*/
+	}
+
+	/*----------------*/
+	.col-a{
+		/**/
+		grid-area: A;
+	}
+
+	/*----------------*/
+	.col-b{
+		/**/
+		grid-area: B;
+	}
+
+	/*----------------*/
+	section{
+		/**/
+		padding-block: 16rem;
+	}
+
+	section header h2{
+		font-size: 4rem;
+		line-height: 5.2rem;
+	}
+
+	/*-------------------------------------------*/
+	/*--NAVIGATION---------------------------------------------*/
+	/*--reset--------------------------------------------------*/
+	nav#navigation .wrapper *{
+		/*aqui todos os elementos de wrapper em navigation estão sofrendo modificações*/
+		margin: 0;
+		padding: 0;
+		visibility: initial;
+		/*aqui o initial está pegando a visibilidade que era antes do css
+		no caso, a visibilidade que estava definida por padrão no navegador
+		*/
+		display: initial;
+		opacity: initial;
+		flex-direction: initial;
+		position: initial;
+		font-size: initial;
+		font-weight: initial;
+		transform: initial;
+		color: initial;
+		background-color: initial;
+		filter: initial;
+	}
+
+	/*----------------*/
+	nav#navigation .close-menu, nav#navigation .open-menu, nav#navigation .social-links{
+		/**/
+		display: none;
+	}
+
+	/*----------------*/
+	nav#navigation .menu{
+		/*aqui o menu será reajustado*/
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 60%;
+		/*
+		o width está aumentando o tamanho da caixa do menu para que assim haja...
+		um espaço entre os elementos
+		*/
+	}
+
+	/*----------------*/
+	nav#navigation .menu ul:nth-child(1){
+		/*aqui está sendo pego o primeiro ul do menu em navigation*/
+		display: flex;
+		gap: 3.2rem;
+	}
+
+	/*----------------*/
+	nav#navigation .menu ul li a{
+		/*aqui está sendo redefinida a cor da tag a*/
+		color: var(primary_color);
+		opacity: 0.7;
+	}
+
+	/*----------------*/
+	nav#navigation .menu a.button{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 1rem 2.4rem;
+		border: 1px solid var(primary_color);
+		border-radius: 4rem;
+		color: var(primary_color);
+		font-weight: 700;
+		font-size: 1.4rem;
+		line-height: 1.8rem;
+		text-transform: uppercase;
+	}
+
+	/*----------------*/
+	nav#navigation .menu a.button:hover{
+		background-color: var(primary_color);
+		border: none;
+		color: white;
+	}
+
+	/*----------------*/
+	nav#navigation.scroll .menu ul li a{
+		color: var(brand_light_2);
+		opacity: 0.6;
+	}
+
+	/*----------------*/
+	nav#navigation .menu a.button{
+		border-color: white;
+		color: white;
+	}
+
+	/*----------------*/
+	nav#navigation .menu li a{
+		/**/
+		transition: opacity 0.4s;
+	}
+
+	/*----------------*/
+	nav#navigation .menu li a:hover{
+		opacity: 1;
+		font-weight: 700;
+	}
+
+	/*----------------*/
+	nav#navigation .menu li a::after{
+		/*aqui é a barrinha que fica abaixo dos links locais do menu*/
+		content: '';
+		width: 0%;
+		height: 2px;
+		background-color: var(primary_color);
+		position: relative;
+		bottom: -2rem;
+		left: -0.5rem;
+		
+		/*
+		o left e o padding foram colocados para que a largura da barrinha fosse um pouco maior...
+		do que a largura dos links
+		*/
+		display: block;
+		transition: width 0.2s;
+		/*aqui uma transição de aparição no eixo x está sendo definida*/
+	}
+
+	/*----------------*/
+	nav#navigation.scroll .menu li a::after{
+		/**/
+		background-color: white;
+	}
+
+	/*----------------*/
+	nav#navigation.scroll .menu li a.active::after,
+	nav#navigation .menu li a:hover::after{
+		width: 100%;
+		padding-inline: 0.8rem;
+	}
+
+	/*----------------*/
+	nav#navigation.scroll .menu li a.active,
+	nav#navigation.scroll .menu li a:hover{
+		/**/
+		opacity: 1;
+	}
+
+	/*----------------*/
+	av#navigation.scroll .menu a.button.active,
+	nav#navigation.scroll .menu a.button:hover{
+		/**/
+		background-color: var(primary_color);
+		filter: brightness(1.3);
+		border: none;
+	}
+
+	/*-------------------------------------------*/
+	/*--HOME---------------------------------------------------*/
+	/*--reset--------------------------------------------------*/
+	#home::before{
+		height: calc(96% - var(nav_heigth));
+		/*
+		esse cálculo serve para redefinir a altura da caixa do before e deixar na altura desejada
+		no caso está pegando 86% da viewport e diminuindo pela var nav_heigth
+		*/
+	}
+
+	/*----------------*/
+	#home{
+		/**/
+		padding-top: var(nav_heigth);
+	}
+
+	/*----------------*/
+	#home .wrapper{
+		grid-template-columns: 60.5rem 1fr;
+		grid-template-areas: 'A B' 'C C';
+	}
+
+	/*----------------*/
+	#home .col-a{
+		text-align: left;
+		align-self: center;
+		/*aqui todos os elementos irão se alinhar no centro da sua área*/
+	}
+
+	/*----------------*/
+	#home h1{
+		/**/
+		font-size: 5.2rem;
+	}
+
+	/*----------------*/
+	#home p{
+		/**/
+		font-size: 1.8rem;
+	}
+
+	/*----------------*/
+	#home .stats{
+		grid-area: C;
+		flex-direction: row;
+		padding: 6rem;
+		gap: 0;
+	}
+
+	/*----------------*/
+	#home .stats .stats + .stat{
+		/*
+		aqui está sendo pego todo stat dentro de stats que tenha outro stat antes dele
+		isso possível por causa do sinal de "+"
+		*/
+		border-left: 1px solid var(primary_color);
+	}
+
+	/*----------------*/
+	#home .stats .stat{
+		/*
+		esta propriedade do flex permite que todos as caixas dos conteúdos da caixa possuam...
+		a mesma largura de acordo com a largura da caixa de stats
+		*/
+		flex: 1;
+	}
+
+	/*----------------*/
+	#home .button{
+		/**/
+		margin: 0;
+	}
+
+	/*----------------*/
+	#home img{
+		/**/
+		width: 42rem;
+	}
+
+	/*-------------------------------------------*/
+	/*--SERVICES-----------------------------------------------*/
+	/*--reset--------------------------------------------------*/
+	#services h2{
+		/**/
+		width: 47rem;
+		margin-inline: auto;
+	}
+
+	/*----------------*/
+	#services .cards{
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 4rem;
+	}
+
+	/*----------------*/
+	#services .card{
+		width: 30%;
+		flex-grow: 1;
+		/*
+		esta propriedade do flex serve para aumentar a caixa do conteúdo até preencher...
+		os espaços vazios que há dentro da caixa pai
+		*/
+	}
+
+	/*-------------------------------------------*/
+	/*--ABOUT--------------------------------------------------*/
+	/*--reset--------------------------------------------------*/
+	#about .wrapper{
+		grid-template-columns: 48rem 1fr;
+		grid-template-areas: 'B A';
+		gap: 6.7rem;
+	}
+
+	/*----------------*/
+	#about .col-a{
+		/**/
+		align-self: center;
+	}
+
+	/*----------------*/
+	#about .content p{
+		/**/
+		margin-bottom: 0;
+	}
+
+	/*-------------------------------------------*/
+	/*--CONTACT------------------------------------------------*/
+	/*--reset--------------------------------------------------*/
+	#contact .wrapper{
+		grid-template-columns: 1fr 57.5rem;
+		grid-template-areas: 'A A';
+	}
+
+	/*----------------*/
+	#contact .col-a{
+		/**/
+		align-self: center;
+	}
+
+	/*----------------*/
+	#contact h2{
+		/**/
+		width: 40.4rem;
+	}
+
+	/*-------------------------------------------*/
+	/*--FOOTER-------------------------------------------------*/
+	/*--reset--------------------------------------------------*/
+	footer{
+		/**/
+		padding-block: 8rem;
+	}
+
+	/*----------------*/
+	footer .wrapper{
+		/**/
+		grid-template-columns: 1fr 1fr;
+	}
+
+	/*----------------*/
+	footer .col-a{
+		/**/
+		align-self: center;
+	}
+
+	/*----------------*/
+	footer .col-b{
+		align-self: center;
+		justify-self: flex-end;
+		/*o flex-end jogará o col-b para o lado mais esquerdo da caixa pai*/
+	}
+
+	/*----------------*/
+	footer p{
+		/**/
+		margin-bottom: 0;
+	}
+}
