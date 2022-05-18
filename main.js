@@ -35,7 +35,7 @@ function activateMenuSection(section){
 	${} serve para fazer interpolações (trocas). Nesse caso está sendo colocado o atributo id...
 	em todo href de todo a de .menu
 	*/
-	const menuElement = document.querySelector(`.menu a [{}href*=${sectionId}]`)
+	const menuElement = document.querySelector(`.menu a [href*=${sectionId}]`)
 	/*
 	aqui o querySelector está pegando em .menu todo href de todo a que tenha
 	em js *= significa que contenha tal coisa
@@ -61,7 +61,7 @@ function showNavOnScroll() {
 
 function showButtonBackToTopOnScroll() {
 	//esta função será responsável por mostrar o botão de volta quando a página for rolada até certo ponto
-	if (scrollY > 400) {
+	if (scrollY > 550) {
 		buttonBackToTop.classList.add('show')
 	} else {
 		buttonBackToTop.classList.remove('show')

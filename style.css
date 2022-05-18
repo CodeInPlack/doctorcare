@@ -141,6 +141,7 @@ section header h1{
 	font-size: 3.4rem;
 	color: var(headline);
 	line-height: 130%;
+	margin-bottom: 2.4rem;
 }
 
 /*----------------*/
@@ -153,7 +154,7 @@ section .content p{
 
 /*----------------*/
 .button{
-	background-color: var(primary_color);
+	background: var(primary_color);
 	/*aqui a cor do plano de fundo da tag botão está sendo definido*/
 	border: none; /*aqui a borda fica invisível*/
 	border-radius: 4rem; /*aqui ocorre o arredondamento das bordas*/
@@ -224,13 +225,13 @@ section .content p{
 }
 
 /*----------------*/
-#navigation .logo path[fill*="#00856F"], #buttonBackToTop circle{
+#navigation .logo path[fill*='#00856F'], #buttonBackToTop circle{
 	/*está sendo pego no path de logo em navigation todo o fill que tiver a propriedade citada*/
 	fill: var(primary_color);
 }
 
 /*----------------*/
-#contact li path{
+button.open-menu path[stroke*='#00856F'], #contact li path{
 	/**/
 	stroke: var(primary_color);
 }
@@ -242,14 +243,9 @@ button.menu_expanded #navigation .logo path, #navigation.scroll .logo path{
 }
 
 /*----------------*/
-button.open-menu path[stroke*="#00856F"], #contact li path{
-	fill: var(primary_color);
-}
-
-/*----------------*/
-#navigation.scroll button.open-menu path[stroke*="#00856F"]{
+#navigation.scroll button.open-menu path[stroke*='#00856F']{
 	/**/
-	fill: white;
+	stroke: white;
 }
 
 /*-------------------------------------------*/
@@ -271,21 +267,14 @@ nav{
 	para isso será necessário mexer no top, no left e no transform para recuperar essas propriedades
 	*/
 	top: 0;
-	left: 50%;
-	/*aqui o left está redefinindo a posição inicial da caixa para a metade do viewport*/
-	transform: translateX(-50%);
-	/*
-	aqui o transform: translateX; está puxando para a esquerda metade do tamanho da caixa no eixo x
-	com isso o transform reajusta o left
-	*/
-	z-index: 100;
-	/*o z-index foi adicionado para corrigir um problema referente ao scroll reveal onde o nav estava por baixo*/
 	width: 100vw;
 	/*
 	width foi movido para cá para que a caixa de nav ficasse alinhada como desejado
 	o alinhamento ocorre por causa que nav recebe .wrapper como classe
 	nesse caso, as propriedades de wrapper fazem com que a caixa de nav fique alinhada
 	*/
+	z-index: 100;
+	/*o z-index foi adicionado para corrigir um problema referente ao scroll reveal onde o nav estava por baixo*/
 }
 
 /*----------------*/
@@ -339,15 +328,6 @@ nav .menu, nav .close-menu{
 
 /*-------------------------------------------*/
 /*--MENU_EXPANDED------------------------------------------*/
-.menu{
-	transform: translateY(100%);
-	/*
-	aqui o transform irá mover todo o menu para baixo (isso foi feito para que uma transição...
-	em body.menu_expanded .menu fosse feita)
-	*/
-}
-
-/*----------------*/
 body.menu_expanded{
 	overflow: hidden;
 	/*
@@ -364,7 +344,7 @@ body.menu_expanded > :not(nav){
 	com isso tudo que não fizer parte de nav irá sumir quando o menu_expanded estiver ativo
 	isto serve para que não haja botões a mais do que o desejado no menu
 	*/
-	display: none;
+	visibility: hidden;
 }
 
 /*----------------*/
@@ -384,6 +364,15 @@ body.menu_expanded .menu, body.menu_expanded .close-menu{
 }
 
 /*----------------*/
+.menu{
+	transform: translateY(100%);
+	/*
+	aqui o transform irá mover todo o menu para baixo (isso foi feito para que uma transição...
+	em body.menu_expanded .menu fosse feita)
+	*/
+}
+
+/*----------------*/
 body.menu_expanded .menu{
 	/*aqui está sendo pega a classe menu que há dentro de body e classe menu_expanded de body*/
 	top: 0;
@@ -394,7 +383,7 @@ body.menu_expanded .menu{
 	/*aqui o menu está pegando 100 pedaços do tamanho da viewport*/
 	padding-top: var(nav_heigth);
 	/*aqui fará com que haja um preenchimento acima da caixa menu que a separe da logo*/
-	transition: transform 400ms;
+	transition: transform 300ms;
 	/*
 	aqui está sendo colocada uma transição de opacidade para quando o menu for aberto
 	o opacity foi trocado por transform para que a transição ocorresse
@@ -499,6 +488,11 @@ body.menu_expanded button path{
 	esses margins estão preenchendo as laterais do cabeçalho automaticamente
 	com isso o mesmo fica alinhado no centro
 	*/
+	padding-block: 0;
+	/*
+	este padding foi colocado para que um problema envolvendo o responsivo fosse solucionado
+	o home não recebe o padding-block que foi definido section neste documento
+	*/
 	padding-top: calc(4.1rem + var(nav_heigth));
 	/*
 	aqui o margin está colocando um espaço na parte de cima do header de 41px
@@ -515,11 +509,6 @@ body.menu_expanded button path{
 	por conta disto o tamanho da caixa será somada ao tamanho do cabeçalho
 	porém, o box-sizing: border-box; resolve este problema
 	*/
-	padding-block: 0;
-	/*
-	este padding foi colocado para que um problema envolvendo o responsivo fosse solucionado
-	o home não recebe o padding-block que foi definido section neste documento
-	*/
 }
 
 /*----------------*/
@@ -528,7 +517,7 @@ body.menu_expanded button path{
 	ex.: se fosse colocado content: "abc";, isto iria aparecer antes de qualquer coisa que...
 	esteja dentro da tag
 	*/
-	content: "";
+	content: '';
 	width: 100%;
 	/*aqui está sendo dito que a largura da caixa é do tamanho da viewport
 	o 100 significa que a largura da viewport está sendo dividida em 100 pedaços e a...
@@ -567,12 +556,6 @@ body.menu_expanded button path{
 	sem os margins o botão ficaria descentralizado por causa do display: flex;
 	*/
 	margin-inline: auto;
-}
-
-/*----------------*/
-#home h1{
-	/*o margin foi mantido porque é uma propriedade que pode sofrer alterações em outros h1's*/
-	margin-bottom: 2.4rem;
 }
 
 /*----------------*/
@@ -633,15 +616,6 @@ body.menu_expanded button path{
 }
 
 /*----------------*/
-#home .stat p{
-	/*aqui está sendo pego a tag p de cada stat do documento*/
-	margin: 0;
-	color: var(primary_color);
-	font-size: 1.6rem;
-	line-height: 150%;
-}
-
-/*----------------*/
 #home .stat h3{
 	font-size: 4.8rem;
 	/*aqui está sendo definido o tamanho da fonte da tag h3 de cada stat do documento*/
@@ -650,8 +624,23 @@ body.menu_expanded button path{
 	margin-bottom: 0.4rem;
 }
 
+/*----------------*/
+#home .stat p{
+	/*aqui está sendo pego a tag p de cada stat do documento*/
+	margin: 0;
+	color: var(primary_color);
+	font-size: 1.6rem;
+	line-height: 150%;
+}
+
 /*-------------------------------------------*/
 /*--SERVICES-----------------------------------------------*/
+#services header h2{
+	/*o margin foi mantido porque é uma propriedade que pode sofrer alterações em outros h2's*/
+	margin-bottom: 6rem;
+}
+
+/*----------------*/
 #services .cards{
 	display: flex;
 	flex-direction: column;
@@ -659,13 +648,7 @@ body.menu_expanded button path{
 }
 
 /*----------------*/
-#services header h2{
-	/*o margin foi mantido porque é uma propriedade que pode sofrer alterações em outros h2's*/
-	margin-bottom: 6rem;
-}
-
-/*----------------*/
-.card{
+#services .card{
 	/*
 	uma div já vem com parâmetros como width e height, um total de 327x327
 	com isso não é preciso definir estes parâmetros
@@ -683,7 +666,7 @@ body.menu_expanded button path{
 }
 
 /*----------------*/
-.card h3{
+#services .card h3{
 	/**/
 	margin-block: 1.6rem;
 }
@@ -923,7 +906,7 @@ footer .social-links{
 	}
 
 	/*----------------*/
-	nav#navigation .menu a.button{
+	nav#navigation.scroll .menu a.button{
 		border-color: white;
 		color: white;
 	}
@@ -981,7 +964,7 @@ footer .social-links{
 	}
 
 	/*----------------*/
-	av#navigation.scroll .menu a.button.active,
+	nav#navigation.scroll .menu a.button.active,
 	nav#navigation.scroll .menu a.button:hover{
 		/**/
 		background-color: var(primary_color);
@@ -1148,6 +1131,7 @@ footer .social-links{
 	footer .wrapper{
 		/**/
 		grid-template-columns: 1fr 1fr;
+		grid-template-areas: 'A B';
 	}
 
 	/*----------------*/
